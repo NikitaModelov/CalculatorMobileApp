@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CalculatorMobileApp;assembly=CalculatorMobileApp"
+             x:Class="CalculatorMobileApp.MainPage">
+
+    <Grid BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <BoxView VerticalOptions="End" Style="{StaticResource Separator}" Margin="16,0,16,0"/>
+        <StackLayout Grid.Row="0" VerticalOptions="End" Margin="0,0,0,40">
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <local:CustomEditor FontSize="48" HorizontalOptions="End" Text="5+5"
+                                    Keyboard="Numeric"
+                                    
+                                    CharacterSpacing="1"
+                                    Margin="0,0,16,0"
+                                    AutoSize="TextChanges"/>
+            </ScrollView>
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <Label Text="10"
+                       FontSize="36" 
+                       Style="{StaticResource NumbersField}"/>
+            </ScrollView>
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" Grid.Row="1" Margin="16,32,16,0">
+            <StackLayout Orientation="Horizontal">
+                <local:CustomButton ButtonContent="7"/>
+                <local:CustomButton ButtonContent="8"/>
+                <local:CustomButton ButtonContent="9"/>
+                <local:CustomButton ButtonContent="/" ContentColor="{StaticResource AcceptColor}"/>
+                <local:CustomButton ButtonContent="C" ContentColor="{StaticResource AcceptColor}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <local:CustomButton ButtonContent="4"/>
+                <local:CustomButton ButtonContent="5"/>
+                <local:CustomButton ButtonContent="6"/>
+                <local:CustomButton ButtonContent="x" ContentColor="{StaticResource AcceptColor}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <local:CustomButton ButtonContent="1"/>
+                <local:CustomButton ButtonContent="2"/>
+                <local:CustomButton ButtonContent="3"/>
+                <local:CustomButton ButtonContent="-" ContentColor="{StaticResource AcceptColor}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <local:CustomButton ButtonContent="0"/>
+                <local:CustomButton ButtonContent=","/>
+                <Frame HeightRequest="70" 
+                       WidthRequest="70" 
+                       CornerRadius="70" 
+                       HorizontalOptions="Start" 
+                       VerticalOptions="Start"
+                       Margin="0" Padding="0" 
+                       BackgroundColor="Transparent"/>
+                <local:CustomButton ButtonContent="+" ContentColor="#FF327DF0"/>
+                <local:CustomButton ButtonContent="=" ContentColor="#FF327DF0"/>
+            </StackLayout>
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
