@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CalculatorMobileApp;assembly=CalculatorMobileApp"
+             xmlns:effects="clr-namespace:Xamarin.KeyboardHelper;assembly=Xamarin.KeyboardHelper"
              x:Class="CalculatorMobileApp.MainPage">
 
     <Grid BackgroundColor="Black">
@@ -13,12 +14,18 @@
         <BoxView VerticalOptions="End" Style="{StaticResource Separator}" Margin="16,0,16,0"/>
         <StackLayout Grid.Row="0" VerticalOptions="End" Margin="0,0,0,40">
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                <local:CustomEditor FontSize="48" HorizontalOptions="End" Text="5+5"
+                <local:CustomEditor FontSize="48" Text="5+5"
                                     Keyboard="Numeric"
-                                    
+                                    effects:KeyboardEffect.EnableKeyboard="False" 
+                                    effects:KeyboardEffect.RequestFocus="True"
                                     CharacterSpacing="1"
-                                    Margin="0,0,16,0"
-                                    AutoSize="TextChanges"/>
+                                    HorizontalTextAlignment="End"
+                                    HorizontalOptions="Fill"
+                                    Margin="0,0,16,0">
+                    <local:CustomEditor.Effects>
+                        <effects:KeyboardEnableEffect />
+                    </local:CustomEditor.Effects>
+                </local:CustomEditor>
             </ScrollView>
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <Label Text="10"
